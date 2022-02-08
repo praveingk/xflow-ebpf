@@ -10,3 +10,9 @@ XDP-based network flow monitoring
 ```shell
      sudo xdp-loader unload --all ens6f0np0
 ```
+
+### Dump the contents of the map
+```shell
+     sudo bpftool map dump name  xflow_map
+```
+
