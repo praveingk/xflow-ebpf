@@ -24,6 +24,25 @@ struct config {
 	int xsk_if_queue;
 	bool xsk_poll_mode;
 };
+typedef struct flow_counters_t {
+	__u32 packets;
+	__u64 bytes;
+} __attribute__((packed)) flow_counters;
+
+typedef struct flow_id_t {
+	__u32 saddr;
+	__u32 daddr;
+	__u16 sport;
+	__u16 dport;
+	__u8 protocol;
+} __attribute__((packed)) flow_id;
+
+typedef struct flow_map_t {
+	flow_id id;
+
+	flow_counters counters;
+} __attribute__((packed)) flow_map;
+
 
 /* Defined in common_params.o */
 extern int verbose;
