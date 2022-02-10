@@ -16,3 +16,7 @@ XDP-based network flow monitoring
      sudo bpftool map dump name  xflow_map
 ```
 
+### Reading the flow metrics using user-space program
+```shell
+     sudo ./src/xflow_user
+```
