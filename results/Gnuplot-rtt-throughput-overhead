@@ -1,0 +1,26 @@
+# Script that plots frequency of Similar Journey count
+#set terminal postscript eps enhanced dashed color font 'Helvetica,14'
+#set term cairopdf dashed monochrome enhanced  font 'Helvetica,14'
+set term pdf size 6,6 enhanced color enhanced  font 'Helvetica,20'
+# Parameter
+set xlabel ""
+set ylabel "Avg Throughput (Gbps)"
+set key top vertical maxrows 2
+
+
+#set size square
+set datafile separator ","
+#set grid ytics lc rgb "#000000" lw 1 lt 0
+#set grid xtics lc rgb "#000000" lw 1 lt 0
+set style fill solid border -1
+set style histogram errorbars gap 2 lw 1
+
+
+set yrange [0:40]
+
+
+set output "xflow_rtt_throughput_overhead.pdf"
+
+set xtic offset 1
+
+plot 'xflow_rtt_throughput_overhead.csv'  using 2:3:4:xtic(1)  with hist  axes x1y1 lw 3 lt 1 lc rgb "0x4daf4a" title ""
